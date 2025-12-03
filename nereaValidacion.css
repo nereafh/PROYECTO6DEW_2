@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+}
+
+#resultado {
+    background-color: #fff;
+    min-height: 50px;
+    word-wrap: break-word;
+}
+
+/* Validación inputs */
+input.valido, textarea.valido {
+    border-color: #36cc36 !important;
+}
+
+input.invalido, textarea.invalido {
+    border-color: rgb(255, 60, 0) !important;
+}
+
+/* Mensajes de error */
+p.error-msg {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: rgb(255, 60, 0);
+    margin-top: 5px;
+    display: none;
+}
