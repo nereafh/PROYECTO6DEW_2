@@ -1,7 +1,11 @@
 <?php
+//Acceso desde cualquier origen para hacer peticiones a este script
 header("Access-Control-Allow-Origin: *");
+
+//Devuelvo JSON 
 header("Content-Type: application/json; charset=UTF-8");
 
+//Si la petición al servidor es GET devuelvo objeto json 
 if($_SERVER["REQUEST_METHOD"]==="GET"){
     echo json_encode([
         "nombre"=>"Nerea",
@@ -20,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"]==="GET"){
     exit;
 }
 
+//Si la petición al servidor es POST recibo datos desde el js e imprimo lo que recibo 
 if($_SERVER["REQUEST_METHOD"]==="POST"){
     $json=file_get_contents("php://input");
     echo "POST recibido: ".$json;

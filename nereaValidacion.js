@@ -38,7 +38,7 @@ const mensajes = {
     //mensaje: "Debe ingresar un mensaje."
 };
 
-// Validación en tiempo real
+//Validación 
 document.querySelectorAll("#formulario input, #formulario textarea").forEach(input => {
     input.addEventListener("keyup", e => {
         const regex = patterns[e.target.name];
@@ -46,6 +46,7 @@ document.querySelectorAll("#formulario input, #formulario textarea").forEach(inp
     });
 });
 
+//Valido o inválido, muestra color rojo o verde según el caso
 function validate(campo, regex){
     campo.classList.remove("valido","invalido");
     const msg = document.getElementById("error-"+campo.name);
@@ -58,7 +59,7 @@ function validate(campo, regex){
     }
 }
 
-// Comprobar si todo es válido
+//Comprobar si todo es válido
 function todoValido(){
     let ok = true;
     document.querySelectorAll("#formulario input, #formulario textarea").forEach(input => {
@@ -74,7 +75,7 @@ function todoValido(){
     return ok;
 }
 
-// --- Guardar y recuperar localStorage ---
+// --- (botones) Guardar y recuperar localStorage ---
 document.getElementById("btnGuardar").onclick = function(){
     if(!todoValido()){ mostrarResultado("Hay campos inválidos."); return; }
     const datos = {};

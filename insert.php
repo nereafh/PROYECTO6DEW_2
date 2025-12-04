@@ -1,13 +1,17 @@
 <?php
+//Conexión a la base de datos
 $conexion = new mysqli("localhost", "zonzamas", "Csas1234!", "practica6_dew");
 if($conexion->connect_error) die("Error de conexión: ".$conexion->connect_error);
 
+//Campos que recibo por POST
 $campos = ["nombre","apellidos","dni","fnacimiento","cpostal","correo","telefonofijo","telefonomovil","iban","tarjetacredito","contrasena","repetircontrasena"];
+
+//Recorro todos los campos, es un array uso foreach(), los guardo en variables dinámicas, ejemplo: $nombre = $_POST["nombre"];
 foreach($campos as $c){ $$c = $_POST[$c]; }
 
 $sql = "INSERT INTO usuarios (nombre,apellidos,dni,fnacimiento,cpostal,correo,telefonofijo,telefonomovil,iban,tarjetacredito,contrasena,repetircontrasena) 
         VALUES ('$nombre','$apellidos','$dni','$fnacimiento','$cpostal','$correo','$telefonofijo','$telefonomovil','$iban','$tarjetacredito','$contrasena','$repetircontrasena')";
-
+//Ejecuto la consulta anterior y devuelvo mensaje de éxito o error
 if($conexion->query($sql)) echo "Datos insertados correctamente en la BD.";
 else echo "Error: ".$conexion->error;
 
